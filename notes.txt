@@ -1,0 +1,16 @@
+const person = {
+  firstName: "nico",
+  lastName: "Fuentes",
+  skill: "Web Developer",
+  hobbies: ["Learning", "reading"],
+  get fullName() {
+    return `${this.firstName} ${this.lastName}. Is ${this.age} years ols `;
+  },
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+person.fullName = "DiDi Wu";
+console.log(person.fullName);
