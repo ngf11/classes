@@ -151,5 +151,27 @@ class User {
 }
 let user = new User("nico");
 console.log(user.name);
+class User {
+  name = "John";
 
-remember that you have to make somtg=hing
+  sayHi() {
+    console.log(`Hello, ${this.name}!`);
+  }
+}
+
+new User().sayHi();
+
+class Button {
+  constructor(value) {
+    this.value = value;
+  }
+  click = () => {
+    console.log(this.value);
+  };
+}
+
+let button = new Button("hello");
+
+setTimeout(button.click, 1000);
+
+click("nico").call();
