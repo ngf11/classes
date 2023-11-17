@@ -134,3 +134,22 @@ function makeClass(phrase) {
 const nico = makeClass("Gordo Puto");
 
 new nico().sayPhrase();
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+  get name() {
+    return ` Hi ${this._name}`;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      return `This name is is too short`;
+    }
+    this._name = value;
+  }
+}
+let user = new User("nico");
+console.log(user.name);
+
+remember that you have to make somtg=hing
