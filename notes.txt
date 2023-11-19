@@ -229,4 +229,39 @@ class Clock {
 }
 
 let clock = new Clock({ template: "h:m:s" });
-clock.start();
+clock.start();          
+const person = {
+  name: "Nico",
+  skill: "Developer",
+  interest: ["fitness", "3D Animation"],
+  get intro() {
+    console.log(
+      `Hi, my name is ${this.name}. I am a ${this.skill}. My interest are: ${this.getPrieryInterst}`
+    );
+  },
+  set setInterest(val) {
+    this.interest.unshift(val);
+  },
+  set newName(val) {
+    if (this.name <= 4) {
+      throw new Error("This name is to0 short");
+    } else {
+      this.name = val;
+    }
+  },
+  set setSkill(val) {
+    this.skill = val;
+  },
+  get getPrieryInterst() {
+    for (const hobbies of this.interest) {
+      return hobbies;
+    }
+  },
+};
+person.intro;
+person.newName = "DiDi";
+person.setSkill = "Astronaut";
+person.setInterest = "Space travel";
+person.setInterest = "Playing Futbol";
+console.log("-------");
+person.intro;

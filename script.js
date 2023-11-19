@@ -1,24 +1,21 @@
-const person = {
-  name: "Nico",
-  skill: "Developer",
-  interest: ["fitness", "3D Animation"],
+class Person {
+  constructor(name, skill, hobbies) {
+    this.name = name;
+    this.skill = skill;
+    this.hobbies = hobbies;
+  }
   get intro() {
-    console.log(
-      `Hi, my name is ${this.name}. I am a ${this.skill}. My interest are: ${this.interest}`
-    );
-  },
-  set setInterest(val) {
-    this.interest.unshift(val);
-  },
-  set newName(val) {
-    this.name = val;
-  },
-  set setSkill(val) {
-    this.skill = val;
-  },
-};
-person.newName = "DiDi Wu";
-person.setSkill = "Astronaut";
-person.setInterest = "Space travel";
-person.setInterest = "Playing Futbol";
-person.intro;
+    return `hi my name is ${this.name}. I am ${this.skill}, I am interested in ${this.primeryInterest}`;
+  }
+  set name(val) {
+    this._name = val;
+  }
+
+  get name() {
+    return this._name.toUpperCase();
+  }
+}
+
+const nico = new Person("nico", "Developer", ["Fitness", "Tech"]);
+
+console.log(nico.intro);
