@@ -1,21 +1,13 @@
-class Person {
-  constructor(name, skill, hobbies) {
-    this.name = name;
-    this.skill = skill;
-    this.hobbies = hobbies;
+class Pizza {
+  constructor(pizzaType, pizzaSize, crustType) {
+    this.type = pizzaType;
+    this.size = pizzaSize;
+    this.crust = crustType;
   }
-  get intro() {
-    return `hi my name is ${this.name}. I am ${this.skill}, I am interested in ${this.primeryInterest}`;
-  }
-  set name(val) {
-    this._name = val;
-  }
-
-  get name() {
-    return this._name.toUpperCase();
+  bake() {
+    console.log(`Baking ${this.size} ${this.type} ${this.crust} crust pizza`);
   }
 }
 
-const nico = new Person("nico", "Developer", ["Fitness", "Tech"]);
-
-console.log(nico.intro);
+const myPizza = new Pizza("Pepperoni", "Large", "Thin");
+myPizza.bake();
