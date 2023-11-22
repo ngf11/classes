@@ -1,9 +1,8 @@
+//Parent class super class
 class Pizza {
-  constructor(pizzaType, pizzaSize) {
-    this.type = pizzaType;
+  constructor(pizzaSize) {
     this.size = pizzaSize;
-    this.crust = crustType;
-    this.toppings = [];
+    this.crust = "Orinal";
   }
   get pizzaCrust() {
     return this.crust;
@@ -12,19 +11,25 @@ class Pizza {
   set pizzaCrust(val) {
     this.crust = val;
   }
+}
 
-  getToppings() {
-    return this.toppings;
+class SpecialtyPizza extends Pizza {
+  constructor(pizzaSize) {
+    super(pizzaSize);
+    this.type = this.type; // "The Works"
   }
-
-  setToppings(val) {
-    this.toppings.push(val);
+  getTypeOfPizza() {
+    console.log(this.type);
   }
-  bake() {
-    console.log(`Baking ${this.size} ${this.type} ${this.crust} crust pizza`);
+  setTypeOfPizza(val) {
+    this.type = val;
+  }
+  slice() {
+    console.log(`Our ${this.type} ${this.size} pizza has 8 slices `);
   }
 }
 
-const myPizza = new Pizza("Pepperoni", "Large", "Thin");
-myPizza.pizzaCrust = "THicc";
-myPizza.bake();
+const myPizza = new SpecialtyPizza("Lagre");
+myPizza.setTypeOfPizza("The Works");
+
+myPizza.slice();
