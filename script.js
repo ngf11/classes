@@ -1,21 +1,28 @@
 //Parent class super class
-class Pizza {
-  constructor(pizzaSize) {
-    this.size = pizzaSize;
-    this.crust = "Orinal";
-  }
-  get pizzaCrust() {
-    return this.crust;
-  }
+// class Pizza {
+//   constructor(pizzaSize) {
+//     this._size = pizzaSize;
+//     this._crust = "Orinal";
+//   }
+//   get pizzaCrust() {
+//     return this._crust;
+//   }
 
-  set pizzaCrust(val) {
-    this.crust = val;
-  }
-  get order() {
-    console.log(`Your order is ${this.size}, ${this.crust} curst pizza. `);
-  }
+//   set pizzaCrust(val) {
+//     this._crust = val;
+//   }
+// }
+
+//Factory funtion
+function pizzaFuctory(size) {
+  const pizzaCrust = "Orginal";
+  const pizzaSize = size;
+  return {
+    bake: () => {
+      console.log(`Your order ${pizzaSize}, ${pizzaCrust} pizza`);
+    },
+  };
 }
 
-const myPizza = new Pizza("Large");
-myPizza.pizzaCrust = "Thin";
-myPizza.order;
+const myPizza = pizzaFuctory("Large");
+myPizza.bake();
