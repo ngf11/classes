@@ -321,3 +321,16 @@ const myPizza = new SpecialtyPizza("Lagre");
 myPizza.setTypeOfPizza("The Works");
 
 myPizza.slice();
+//Factory funtion
+function pizzaFuctory(size) {
+  const pizzaCrust = "Orginal";
+  const pizzaSize = size;
+  return {
+    bake: () => {
+      console.log(`Your order ${pizzaSize}, ${pizzaCrust} pizza`);
+    },
+  };
+}
+
+const myPizza = pizzaFuctory("Large");
+myPizza.bake();
