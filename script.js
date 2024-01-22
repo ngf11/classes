@@ -1,60 +1,37 @@
-const obj = {
-  greet: "Hi",
-  name: "nico",
-  get fullname() {
-    return `${this.greet} ${this.name}`;
-  },
-  set fullname(name) {
-    this.name = name;
-  },
-};
+class Clock {
+  constructor({ template }) {
+    this.template = template;
+  }
 
-console.log(obj);
-console.log(obj.fullname);
-obj.fullname = "Didi";
-console.log(obj.fullname);
+  render() {
+    let date = new Date();
 
-const user = {
-  firstname: "nico",
-  lastname: "fuentes",
-  get fullname() {
-    return `${this.firstname} ${this.lastname}`;
-  },
-  set fullname(value) {
-    [this.firstname, this.lastname] = value.split(" ");
-  },
-};
+    let hours = date.getHours();
+    if (hours < 10) hours = "0" + hours;
 
-console.log(user);
-console.log(user.fullname);
-user.fullname = "Didi Wu";
-console.log(user.fullname);
-console.log(user.firstname);
-console.log(user.lastname);
+    let mins = date.getMinutes();
+    if (mins < 10) mins = "0" + mins;
 
-const users = {
-  firstname: "siggy",
-  lastname: "siggy",
-  get fullname() {
-    return `${this.firstname} ${this.lastname}`;
-  },
-  set fullname(value) {
-    [this.firstname, this.lastname] = value.split(" ");
-  },
-};
+    let secs = date.getSeconds();
+    if (secs < 10) secs = "0" + secs;
 
-Object.defineProperty(users, "fullname", {
-  get() {
-    return `${this.firstname} ${this.lastname}`;
-  },
-  set(value) {
-    [this.firstname, this.lastname] = value.split(" ");
-  },
-});
+    let output = this.template
+      .replace("h", hours)
+      .replace("m", mins)
+      .replace("s", secs);
 
-console.log(users);
-console.log(users.fullname);
-users.fullname = "Didi Wu";
-console.log(users.fullname);
-console.log(users.firstname);
-console.log(users.lastname);
+    console.log(output);
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000);
+  }
+}
+
+let clock = new Clock({ template: "h:m:s" });
+clock.start();
